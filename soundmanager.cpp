@@ -4,69 +4,87 @@
 더 추상화된 형태의 클래스를 디자인해서 만들어 보셔도 좋습니다!
 */
 
-
 #include <iostream>
 #include <windows.h>
 #pragma comment(lib, "winmm.lib")
 #include <mmsystem.h>
-#include <CSound.h>
+//#include <CSound.h>
+#include <ctime>
+#include <string>
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using namespace std;
+
+
+/*열거형*/
+enum PlaySong{
+    Track01,
+    Track02,
+    Track03,
+    Track04,
+    Track05,
+};
+
+//C# 에서만 쓰이는 코드, C++에서는 안먹힘
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+
 
 /*사운드의 종류*/
 
 /* 음악을 재생하는 사운드 매니저 */
 
-class SoundManager
-{
-public:
-        char bgm_name; //배경음악이름
-        int play_time = 0; //총 재생시간
+class SoundManager{
+    private:
+        string bgm_name;
+        int play_time;
+        int volume_select; //up, down
 
-public:
-    void running_time() {
-        this -> play_time ++; //재생시간 초단위로 증가
-    }
-
-    void sing_name() {
-        this -> bgm_name;
-    }
-
-    void inform() {
-        std::cout << "배경음악이름 :" << bgm_name << endl;
-        std::cout << "재생경과시간 :" << play_time << "초" << endl; 
-    }
-
-
-int main() {
-    CSound* sound = new CSound("Sugarsweet.wav", false);
-    PlaySound(TEXT("Sugarsweet.wav"), NULL, SND_LOOP);
-
-    while(true){
-        if() {
-            sound -> play(); //맴버접근연산자 , sound의 play에 접근
+    public:
+        void volume_up(){
+            for (int count = 0; count <= 10; count++) {
+              std::cout << count;
+              std::cout << "결과는" << count << "입니다";
+          }          
+        } 
+        void volume_down(){
+            for (int count = 0; count >= 10; count--) {
+              std::cout << count;
+              std::cout << "결과는" << count << "입니다";
+          }          
         }
-        if() {
-            sound -> pause(); //맴버접근연산자 , sound의 중지에 접근
+
+        void sound_play(){
+            std::cout << "에프엑스 - 누예삐오";
+            time_t curTime = time(NULL);
+            //timer
+            struct tm *pLocal = localtime(&curTime); //*pLocal = 호출이 성공적일 경우 pLocal은 반환결과를 가리키는 포인터
+            std::cout << "%04d-%02d-%02dT%02d:%02d:%02d", pLocal-> tm_year + 1900, pLocal -> tm_mon + 1, pLocal -> tm_mday, pLocal -> tm_hour, pLocal -> tm_min, pLocal -> tm_sec;
         }
-        if() {
-            sound -> resume(); //맴버접근연산자 , sound의 재시작에 접근
+        void sound_stop(PlaySong song){  
+            if (song == Track01)
+                std::cout << "노래1중지";
+            else if(song == Track02)
+                std::cout << "노래2중지";
+            else if(song == Track03)
+                std::cout << "노래3중지";
+            else if(song == Track04)
+                std::cout << "노래4중지";
+            else if(song == Track05)
+                std::cout << "노래5중지";    
+            }
+        void sound_on(){
+
         }
-        if() {
-            sound -> stop(); ////맴버접근연산자 , sound의 종료에 접근
+        void sound_off(){
+            
         }
-    }
-}
-
-
-
-
+        void sound_shuffle(){
+            int i = 0;
+            while ( i <= 100){
+                std::cout << "sound_shuffle :" << endl;
+                i++;
+            }
+        }
+        
 };
-
-
-
-
-
-

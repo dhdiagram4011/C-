@@ -51,6 +51,6 @@ int main()
     cout << "cal.add(10,19) = " << cal.add(10,19) << endl;
     cout << "cal.min(10,19) = " << cal.min(10,19) << endl;
     cout << "cal.mul(10,19) = " << cal.mul(10,19) << endl;
-    cout << "cal.div(10,19) = " << cal.div(10,19) << endl;
+    cout << "cal.div(10,19) = " << cal.div(1,0) << endl; //-> 예외처리 infinity -> cal.div(10,19) = inf
 
 }
