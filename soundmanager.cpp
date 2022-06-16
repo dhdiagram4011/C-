@@ -24,6 +24,15 @@ enum PlaySong{
     Track05,
 };
 
+
+enum StopSong{
+    Track01,
+    Track02,
+    Track03,
+    Track04,
+    Track05,
+}
+
 //C# 에서만 쓰이는 코드, C++에서는 안먹힘
 //using System.Collections;
 //using System.Collections.Generic;
@@ -61,7 +70,11 @@ class SoundManager{
             struct tm *pLocal = localtime(&curTime); //*pLocal = 호출이 성공적일 경우 pLocal은 반환결과를 가리키는 포인터
             std::cout << "%04d-%02d-%02dT%02d:%02d:%02d", pLocal-> tm_year + 1900, pLocal -> tm_mon + 1, pLocal -> tm_mday, pLocal -> tm_hour, pLocal -> tm_min, pLocal -> tm_sec;
         }
-        void sound_stop(PlaySong song){  
+        void sound_stop(StopSong song){
+            //값 입력받기
+            char song;
+            std::cout << "중지할 노래를 선택해 주세요:";
+            std::cin >> song;
             if (song == Track01)
                 std::cout << "노래1중지";
             else if(song == Track02)
@@ -72,14 +85,25 @@ class SoundManager{
                 std::cout << "노래4중지";
             else if(song == Track05)
                 std::cout << "노래5중지";    
-            }
-        void sound_on(){
-
+        }
+        void sound_on(PlaySong song){
+            std::cout << "재생할 노래를 선택해 주세요:";
+            std::cin >> song;
+            if (song == Track01)
+                std::cout << "노래1재생";
+            else if(song == Track02)
+                std::cout << "노래2재생";
+            else if(song == Track03)
+                std::cout << "노래3재생";
+            else if(song == Track04)
+                std::cout << "노래4재생";
+            else if(song == Track05)
+                std::cout << "노래5재생";
         }
         void sound_off(){
             
         }
-        void sound_shuffle(){
+        void sound_shuffle(){ //노래 반복재생
             int i = 0;
             while ( i <= 100){
                 std::cout << "sound_shuffle :" << endl;
