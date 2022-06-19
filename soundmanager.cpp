@@ -72,7 +72,6 @@ class SoundManager{
         }
         void sound_stop(StopSong song){
             //값 입력받기
-            char song;
             std::cout << "중지할 노래를 선택해 주세요:";
             std::cin >> song;
             if (song == Track01)
