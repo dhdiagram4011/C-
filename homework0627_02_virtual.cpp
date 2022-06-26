@@ -17,6 +17,7 @@ class Human {
     public:
         Human(int _age, char * _name, char * _hobby);
         virtual void Print() { cout << "사람" << endl; }
+        Human() {};
 };
 
 
