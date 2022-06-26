@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <iostream>
 
+
+
 /*다이아몬드 출력하기 */
 using namespace std;
 

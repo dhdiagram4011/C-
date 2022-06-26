@@ -14,7 +14,7 @@ using namespace std;
 
 class MusicDJGame{ //게임이름 : 뮤직디제잉게임
     public:
-        virtual ~MusicDJGame() {} // 게임 종료
+        virtual ~MusicDJGame() {} // 게임 종료 , 소멸자
         virtual void MusicSelect()=0; //가상함수 선언 --> 기능 : 디제잉할 음악을 선택하는 기능
 };
 
@@ -25,7 +25,6 @@ class Music01 : public MusicDJGame //게임이름
     public:
         virtual void MusicSelect() { cout << "01번음악이 선택되었습니다" << endl; }
 };
-
 
 
 //음악을 선택하면 화면에 메시지를 출력해 주기 위하여 필요함 (02번 음악 선택시)
@@ -93,6 +92,21 @@ int main(void)
     Trip.MusicSelect();
     return 0;
 }
+
+
+DJSounding sounding = DJSounding();
+
+sounding.SoundPlay();
+sounding.SoundStop();
+sounding.SoundRevert();
+sounding.SoundDownload();
+sounding.SoundPayment();
+
+DJFunction function = DJFunction();
+
+function.LPleftConsole();
+function.LPrightConsole();
+function.LPEmergencyStop();
 
 
 
