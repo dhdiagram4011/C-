@@ -73,7 +73,7 @@ class DJSounding{ //게임 사운드 재생기능
 
         void MusicPlay(){
             char select;
-            cout <<"현재 재생되고 있는 음악을 Ctrl 하시겠습니까?(3 : ok, 4: no)" << endl;
+            cout <<"현재 재생되고 있는 음악을 Ctrl 하시겠습니까?(yes or no만 입력가능)" << endl;
             cin >> select;
             if ( strcmp(select, "yes") == 0)  //ctrl ok
                 cout << "음악을 조정합니다" << endl;
