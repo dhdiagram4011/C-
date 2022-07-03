@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -71,12 +72,12 @@ class DJSounding{ //게임 사운드 재생기능
             }
 
         void MusicPlay(){
-            int select;
+            char select;
             cout <<"현재 재생되고 있는 음악을 Ctrl 하시겠습니까?(3 : ok, 4: no)" << endl;
             cin >> select;
-            if ( int select == 3 ) //ctrl ok
+            if ( strcmp(select, "yes") == 0)  //ctrl ok
                 cout << "음악을 조정합니다" << endl;
-           else if ( select == 4 )
+           else if ( strcmp(select, "no") == 0)
                 cout << "현 상태를 유지합니다" << endl;
         }
 };
