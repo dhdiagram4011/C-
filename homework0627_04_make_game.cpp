@@ -4,126 +4,123 @@
 using namespace std;
 
 /*
-ë§Œë“¤ê³  ì‹¶ì€ ê²Œì„ì—ì„œ ì‚¬ìš©í•  ì¶”ìƒ í´ë˜ìŠ¤ë‚˜ ìµœìƒë‹¨ í´ë˜ìŠ¤ê°€ ë ë§Œí•œ í´ë˜ìŠ¤ë¥¼ ì‘ì„±í•´ë³´ì.
-ì™œ í•„ìš”í•œì§€ ì™œ ê·¸ë ‡ê²Œ ë§Œë“¤ì—ˆëŠ”ì§€ ì„¤ëª…í•´ë³´ì
+¸¸µé°í ½ÍÀº °ÔÀÓ¿¡¼­ »ç¿ëÇÒ Ãß»ó Å¬·¡½º³ª ÃÖ»ó´Ü Å¬·¡½º°¡ µÉ¸¸ÇÑ Å¬·¡½º¸¦ ÀÛ¼ºÇØº¸ÀÚ.
+¿Ö ÇÊ¿äÇÑÁö ¿Ö ±×·¸°Ô ¸¸µé¾ú´ÂÁö ¼³¸íÇØº¸ÀÚ
 */
 
-//1. ë§Œë“¤ê³  ì‹¶ì€ ê²Œì„ --> ìŒì•…ë””ì œì‰ ê²Œì„. (ì†ìœ¼ë¡œ ë””ì œì‰, ì›íŒ ëŒë¦¬ê¸°)
+//1. ¸¸µé°í ½ÍÀº °ÔÀÓ --> À½¾ÇµğÁ¦À× °ÔÀÓ. (¼ÕÀ¸·Î µğÁ¦À×, ¿øÆÇ µ¹¸®±â)
 
 
-class MusicDJGame{ //ê²Œì„ì´ë¦„ : ë®¤ì§ë””ì œì‰ê²Œì„
+class MusicDJGame{ //°ÔÀÓÀÌ¸§ : ¹ÂÁ÷µğÁ¦À×°ÔÀÓ
     public:
-        virtual ~MusicDJGame() {} // ê²Œì„ ì¢…ë£Œ , ì†Œë©¸ì
-        virtual void MusicSelect()=0; //ê°€ìƒí•¨ìˆ˜
+        virtual ~MusicDJGame() {} // °ÔÀÓ Á¾·á , ¼Ò¸êÀÚ
+        virtual void MusicSelect()=0; //°¡»óÇÔ¼ö
 };
 
 
-//ìŒì•…ì„ ì„ íƒí•˜ë©´ í™”ë©´ì— ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•´ ì£¼ê¸° ìœ„í•˜ì—¬ í•„ìš”í•¨ (01ë²ˆ ìŒì•… ì„ íƒì‹œ)
+//À½¾ÇÀ» ¼±ÅÃÇÏ¸é È­¸é¿¡ ¸Ş½ÃÁö¸¦ Ãâ·ÂÇØ ÁÖ±â À§ÇÏ¿© ÇÊ¿äÇÔ (01¹ø À½¾Ç ¼±ÅÃ½Ã)
 
-class Music01 : public MusicDJGame //ê²Œì„ì´ë¦„
+class Music01 : public MusicDJGame //°ÔÀÓÀÌ¸§
 {
     public:
-        virtual void MusicSelect() { cout << "01ë²ˆìŒì•…ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤" << endl; }
+        virtual void MusicSelect() { cout << "01¹øÀ½¾ÇÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù" << endl; }
 };
 
 
-//ìŒì•…ì„ ì„ íƒí•˜ë©´ í™”ë©´ì— ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•´ ì£¼ê¸° ìœ„í•˜ì—¬ í•„ìš”í•¨ (02ë²ˆ ìŒì•… ì„ íƒì‹œ)
+//À½¾ÇÀ» ¼±ÅÃÇÏ¸é È­¸é¿¡ ¸Ş½ÃÁö¸¦ Ãâ·ÂÇØ ÁÖ±â À§ÇÏ¿© ÇÊ¿äÇÔ (02¹ø À½¾Ç ¼±ÅÃ½Ã)
 class Music02 : public MusicDJGame
 {
     public:
-        virtual void MusicSelect() { cout << "02ë²ˆìŒì•…ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤" << endl; }
+        virtual void MusicSelect() { cout << "02¹øÀ½¾ÇÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù" << endl; }
 };
 
 
-class DJSounding{ //ê²Œì„ ì‚¬ìš´ë“œ ì¬ìƒê¸°ëŠ¥
+class DJSounding{ //°ÔÀÓ »ç¿îµå Àç»ı±â´É
     private:
-        char sound; //ì‚¬ìš´ë“œ ê¸°ëŠ¥ 
+        char sound; //»ç¿îµå ±â´É 
     public:
-        char getSound() { return sound; } //ì‚¬ìš´ë“œ ê¸°ëŠ¥
-        void SoundPlay(){ //ì‚¬ìš´ë“œì¬ìƒê¸°ëŠ¥ --> ì‹¤ì œ ì‚¬ìš´ë“œ ì¬ìƒê¸°ëŠ¥ ëŒ€ì‹  0ë¶€í„° 100ê¹Œì§€ ìˆ«ì ì¦ê°€ì¶œë ¥ 
+        char getSound() { return sound; } //»ç¿îµå ±â´É
+        void SoundPlay(){ //»ç¿îµåÀç»ı±â´É --> ½ÇÁ¦ »ç¿îµå Àç»ı±â´É ´ë½Å 0ºÎÅÍ 100±îÁö ¼ıÀÚ Áõ°¡Ãâ·Â 
             for (int i = 0; i >= 100; i++){
                 cout << i << endl;
             }
         }
-        void SoundStop(){ //ì‚¬ìš´ë“œì¤‘ì§€ê¸°ëŠ¥
-            cout << "ë””ì œì‰ì„ ì¤‘ì§€í•©ë‹ˆë‹¤" <<  endl;
+        void SoundStop(){ //»ç¿îµåÁßÁö±â´É
+            cout << "µğÁ¦À×À» ÁßÁöÇÕ´Ï´Ù" <<  endl;
         }
-        void SoundRevert(){ //ì‚¬ìš´ë“œë˜ëŒë¦¬ê¸° ê¸°ëŠ¥
-            for (int i = 100; i <= 0; i-- ){ //ì‚¬ìš´ë“œ ë˜ëŒë¦¬ê¸° ê¸°ëŠ¥ --> ì‹¤ì œ ì‚¬ìš´ë“œ ë˜ëŒë¦¬ê¸° ê¸°ëŠ¥ ëŒ€ì‹  ìˆ«ì ê°ì†Œì¶œë ¥
+        void SoundRevert(){ //»ç¿îµåµÇµ¹¸®±â ±â´É
+            for (int i = 100; i <= 0; i-- ){ //»ç¿îµå µÇµ¹¸®±â ±â´É --> ½ÇÁ¦ »ç¿îµå µÇµ¹¸®±â ±â´É ´ë½Å ¼ıÀÚ °¨¼ÒÃâ·Â
                 cout << i << endl;
             }
         }
-        void SoundDownload(){ //ì‚¬ìš´ë“œ ë‹¤ìš´ë¡œë“œ ê¸°ëŠ¥
+        void SoundDownload(){ //»ç¿îµå ´Ù¿î·Îµå ±â´É
             for (int i = 0; i <= 15; i++ ){
                 if ( i == 5 )
                     cout << i << endl;
-                    cout << "ìŒì•… ë‹¤ìš´ë¡œë“œë¥¼ ì‹œì‘í•©ë‹ˆë‹¤" << endl;
+                    cout << "À½¾Ç ´Ù¿î·Îµå¸¦ ½ÃÀÛÇÕ´Ï´Ù" << endl;
                 if ( i == 10)
-                    cout << "ìŒì•… ë‹¤ìš´ë¡œë“œê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤" << endl;
+                    cout << "À½¾Ç ´Ù¿î·Îµå°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù" << endl;
             }
         }
 
-        void SoundPayment(){ //ì‚¬ìš´ë“œ êµ¬ë§¤ê¸°ëŠ¥
-                int answer;
-                cout << "í•´ë‹¹ ìŒì•…ì„ êµ¬ë§¤ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(yes ë˜ëŠ” no ë§Œ ì…ë ¥ ê°€ëŠ¥í•©ë‹ˆë‹¤ , yes : 1, no : 2 ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”)" <<  endl;
+        void SoundPayment(){ //»ç¿îµå ±¸¸Å±â´É
+                string answer;
+                cout << "ÇØ´ç À½¾ÇÀ» ±¸¸Å ÇÏ½Ã°Ú½À´Ï±î?(yes ¶Ç´Â no ¸¸ ÀÔ·Â °¡´ÉÇÕ´Ï´Ù)" <<  endl;
                 cin >> answer;
-                cout << answer << "ë¥¼ ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤" <<  endl;
-                if (answer == 1)
-                    cout << "êµ¬ë§¤ í˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤" << endl;
-                else if (answer == 2)
-                    cout << "êµ¬ë§¤ë¥¼ ì·¨ì†Œí•©ë‹ˆë‹¤" << endl;
-        }
-};
+                cout << answer << "¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù" << endl;
+            }
 
         void MusicPlay(){
             int select;
-            cout <<"í˜„ì¬ ì¬ìƒë˜ê³  ìˆëŠ” ìŒì•…ì„ Ctrl í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(3 : ok, 4: no)" << endl;
+            cout <<"ÇöÀç Àç»ıµÇ°í ÀÖ´Â À½¾ÇÀ» Ctrl ÇÏ½Ã°Ú½À´Ï±î?(3 : ok, 4: no)" << endl;
             cin >> select;
-            if ( select == 3 ) //ctrl ok
-                cout << "ìŒì•…ì„ ì¡°ì •í•©ë‹ˆë‹¤" << endl;
+            if ( int select == 3 ) //ctrl ok
+                cout << "À½¾ÇÀ» Á¶Á¤ÇÕ´Ï´Ù" << endl;
            else if ( select == 4 )
-                cout << "í˜„ ìƒíƒœë¥¼ ìœ ì§€í•©ë‹ˆë‹¤" << endl;
+                cout << "Çö »óÅÂ¸¦ À¯ÁöÇÕ´Ï´Ù" << endl;
+        }
 };
 
 
-class DJFunction{                               //ë””ì œì‰ LPíŒ ì¡°ì‘ê¸°ëŠ¥
+
+class DJFunction{                               //µğÁ¦À× LPÆÇ Á¶ÀÛ±â´É
     private:
         char LPPlayer;
     public:
         char getLPPlayer() { return LPPlayer; }
-        void LPleftConsole(){ //LPíŒ ì™¼ìª½ìœ¼ë¡œ ëŒë¦¬ê¸° ê¸°ëŠ¥
-            cout << "ì™¼ìª½ìœ¼ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤" << endl;
+        void LPleftConsole(){ //LPÆÇ ¿ŞÂÊÀ¸·Î µ¹¸®±â ±â´É
+            cout << "¿ŞÂÊÀ¸·Î µ¹¾Æ°©´Ï´Ù" << endl;
         }
-        void LPrightConsole(){ //LPíŒ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ëŒë¦¬ê¸° ê¸°ëŠ¥
-            cout << "ì˜¤ë¥¸ìª½ìœ¼ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤" << endl; 
+        void LPrightConsole(){ //LPÆÇ ¿À¸¥ÂÊÀ¸·Î µ¹¸®±â ±â´É
+            cout << "¿À¸¥ÂÊÀ¸·Î µ¹¾Æ°©´Ï´Ù" << endl; 
         }
-        void LPEmergencyStop(){ //LPíŒ ë¹„ìƒì •ì§€ê¸°ëŠ¥
-            cout << "ë””ì œì‰ì„ ë¹„ìƒì¤‘ì§€í•©ë‹ˆë‹¤" << endl;
+        void LPEmergencyStop(){ //LPÆÇ ºñ»óÁ¤Áö±â´É
+            cout << "µğÁ¦À×À» ºñ»óÁßÁöÇÕ´Ï´Ù" << endl;
         }
 }; 
 
 
 
-int main(void) //ë©”ì¸í•¨ìˆ˜ëŠ” í”„ë¡œê·¸ë¨ì˜ ì‹œì‘ ì¸ìë¥¼ ë„˜ê²¨ì¤„ ìˆ˜ ìˆìŒ.
+int main(void) //¸ŞÀÎÇÔ¼ö´Â ÇÁ·Î±×·¥ÀÇ ½ÃÀÛ ÀÎÀÚ¸¦ ³Ñ°ÜÁÙ ¼ö ÀÖÀ½.
 {
-    Music01 Giveme5; //Giveme5 -->  ìŒì•…ì´ë¦„
+    Music01 Giveme5; //Giveme5 -->  À½¾ÇÀÌ¸§
     Giveme5.MusicSelect();
-    Music02 Trip; // Trip --> ìŒì•…ì´ë¦„
+    Music02 Trip; // Trip --> À½¾ÇÀÌ¸§
     Trip.MusicSelect();
+    cout << "Trip" << endl;
 
-    DJFunction player = DJFunction();
-    player.LPleftConsole();
-    player.LPrightConsole();
-    player.LPEmergencyStop();
-    
     DJSounding sounding = DJSounding();
     sounding.SoundPlay();
     sounding.SoundStop();
     sounding.SoundRevert();
     sounding.SoundDownload();
     sounding.SoundPayment();
-    
-    return 0;
+    sounding.MusicPlay();
+
+    DJFunction player = DJFunction();
+    player.LPleftConsole();
+    player.LPrightConsole();
+    player.LPEmergencyStop();
 
 }
 
