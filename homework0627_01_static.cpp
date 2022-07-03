@@ -16,7 +16,7 @@ private:
     int age_;
 public:
     static int person_count_; //정적맴버변수
-    static int person_count(); 
+    //static int person_count(); // --> 선언만 되어 있는 상태?, 함수는 어떻게 동작하는지,,, --> 없어도 실행,,,
         // static없을경우 : 4199137번째 사람이 생성되었습니다 , 1987866518번째 사람이 생성되었습니다
     Person(const string& name, int age);
     ~Person() { person_count_--; }
