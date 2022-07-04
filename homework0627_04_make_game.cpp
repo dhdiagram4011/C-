@@ -12,11 +12,42 @@ using namespace std;
 //1. 만들고 싶은 게임 --> 음악디제잉 게임. (손으로 디제잉, 원판 돌리기)
 
 
+//뮤직 디제잉 게임의 기능정의
 class MusicDJGame{ //게임이름 : 뮤직디제잉게임
+    private:
+        string copyrightHolder; //이름
+        int age; //게임제한연령
+        string musicName; //음악이름
+        string playTime; //재생시간
     public:
-        virtual ~MusicDJGame() {} // 게임 종료 , 소멸자
-        virtual void MusicSelect()=0; //가상함수
+        string getMusicName() { return musicName; }
+        string getPlayTime() { return playTime; }
+        void helpkey(){
+            //도움말
+        }
+        void SoundPlay(){
+            //음악재생기능
+        }
+        void SoundStop(){
+            //음악중지기능
+        }
+        void musicSelect(){
+            //음악선택기능
+        }
+        void musicPrice(){
+            //음악구매기능
+        }
+        void musicSave(){
+            //음악저장기능
+        }
+        void beatCtrl(){
+            //음악비트조절기능
+        }
+//        virtual ~MusicDJGame() {} // 게임 종료 , 소멸자
+//        virtual void MusicSelect()=0; //가상함수
 };
+
+
 
 
 //음악을 선택하면 화면에 메시지를 출력해 주기 위하여 필요함 (01번 음악 선택시)
@@ -24,7 +55,7 @@ class MusicDJGame{ //게임이름 : 뮤직디제잉게임
 class Music01 : public MusicDJGame //게임이름
 {
     public:
-        virtual void MusicSelect() { cout << "01번음악이 선택되었습니다" << endl; }
+        virtual void MusicSelect() { cout << "01번음악이 선택되었습니다" << endl; }           
 };
 
 
@@ -34,6 +65,13 @@ class Music02 : public MusicDJGame
     public:
         virtual void MusicSelect() { cout << "02번음악이 선택되었습니다" << endl; }
 };
+
+
+//class 상속
+class Music03 : public MusicDJGame
+{
+    public:
+}
 
 
 class DJSounding{ //게임 사운드 재생기능
@@ -72,16 +110,16 @@ class DJSounding{ //게임 사운드 재생기능
             }
 
         void MusicPlay(){
-            char select;
+            string select;
+            const char* selectResult = "yes"; //char* --> 문자열, 포인터 변수(*)는 문자열을 담기 위하여 사용
             cout <<"현재 재생되고 있는 음악을 Ctrl 하시겠습니까?(yes or no만 입력가능)" << endl;
             cin >> select;
-            if ( strcmp(select, "yes") == 0)  //ctrl ok
+            if (strcmp(select, selectResult) == 0)  //ctrl ok //strcmp --> 두개의 문자열이 같은지 다른지 검사
                 cout << "음악을 조정합니다" << endl;
-           else if ( strcmp(select, "no") == 0)
+           else if (strcmp(select, selectResult) == 0)
                 cout << "현 상태를 유지합니다" << endl;
         }
 };
-
 
 
 class DJFunction{                               //디제잉 LP판 조작기능
